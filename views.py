@@ -5,7 +5,8 @@ from red7 import app
 
 @app.route('/')
 def index():
-    user = {'name': 'Alicja'}
+    aplication = {'name': 'Red7'}
+    user = {'name': 'Zosia Rusinowska'}
     navigation = [
         {
             'href': 'omnie',
@@ -16,4 +17,4 @@ def index():
             'caption': 'Kontakt'
         }
     ]
-    return render_template('index.html', user=user, navigation=navigation)
+    return render_template('index.html', aplication=aplication, user=user, navigation=navigation)

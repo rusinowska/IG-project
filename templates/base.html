@@ -1,16 +1,29 @@
 <head>
     <title>{% block title %}{% endblock %} - moja aplikacja </title>
+
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/pavilion.css') }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+
+  <div  class="container">
     <ul id="navigation">
     {% for item in navigation %}
         <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
     {% endfor %}
     </ul>
-
     <h1>Moja aplikacja</h1>
     {# Komentarz #}
-    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
 
+  <footer>
+
+    <p class="text-center">&#169; 2017 {% if aplication %}{{ aplication.name | striptags }}{% endif %} made by {% if user %}{{ user.name | striptags }}{% endif %}</p>
+
+  </footer>
 </body>
 </html>
